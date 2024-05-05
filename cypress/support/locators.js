@@ -55,7 +55,8 @@ export const loc = {
         BOTAO_CONTINUE: '[data-test="continue"]',
         OVERVIEW: '[data-test="title"]',
         BOTAO_FINISH: '[data-test="finish"]',
-        OBRIGADO: '[data-test="complete-header"]'
+        OBRIGADO: '[data-test="complete-header"]',
+        ERROR:'[data-test="error"]'
     }
 
 

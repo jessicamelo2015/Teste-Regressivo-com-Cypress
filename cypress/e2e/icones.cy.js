@@ -31,7 +31,7 @@ describe('teste de regressão nos menus e ícones', () => {
             it('verificar o ícone do twitter', () => {
                cy.twitter()
             })
-            it.only('verificar o ícone do facebook', () => {
+            it('verificar o ícone do facebook', () => {
                cy.facebook()
             })
             it('verificar o ícone do linkedin', () => {

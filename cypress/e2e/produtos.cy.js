@@ -10,7 +10,7 @@ describe('teste de regressão na página de produtos', () => {
     
     context('filtrando os produtos ', () => {
         
-       it.only('filtrando name de A to Z', () => {
+       it('filtrando name de A to Z', () => {
         cy.get('select').select(loc.PRODUTOS.NAME_A_TO_Z)
         cy.get(loc.PRODUTOS.SAUCE_BACKPACK).should('contain','Sauce Labs Backpack')
         cy.get(loc.PRODUTOS.SHIRT_RED).should('contain','Test.allTheThings() T-Shirt (Red)')
