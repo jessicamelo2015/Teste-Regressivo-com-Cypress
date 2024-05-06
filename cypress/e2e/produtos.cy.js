@@ -1,5 +1,5 @@
 ///<reference types="cypress"/>
-import produtosPage from "../../page-objects/produtos.page";
+import produtosPage from "../page-objects/produtos.page";
 import {loc} from '../support/locators'
 
 describe('teste de regressão na página de produtos', () => {
@@ -22,12 +22,12 @@ describe('teste de regressão na página de produtos', () => {
             
         });
         it('filtrar pelo preço mais baixo ', () => {
-            cy.get('select').select(PREÇO_BAIXO)
-            cy.get(SAUCE_ONESIE).should('contain','Sauce Labs Onesie')
+            cy.get('select').select(loc.PRODUTOS.PREÇO_BAIXO)
+            cy.get(loc.PRODUTOS.SAUCE_ONESIE).should('contain','Sauce Labs Onesie')
         });
         it('filtrar pelo preço mais alto',()=>{
-            cy.get('select').select(PREÇO_ALTO)
-            cy.get(SAUCE_JACKET).should('contain','Sauce Labs Fleece Jacket')
+            cy.get('select').select(loc.PRODUTOS.PREÇO_ALTO)
+            cy.get(loc.PRODUTOS.SAUCE_JACKET).should('contain','Sauce Labs Fleece Jacket')
         })
     });
     
