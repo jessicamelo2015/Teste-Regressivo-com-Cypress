@@ -7,15 +7,22 @@ describe('teste de regressão na página de produtos', () => {
     beforeEach(() => {
         produtosPage.fazerLogin()
     });
-    context('adicionando itens no carrinho', () => {
+    context('itens no carrinho', () => {
 
-        it('adicionar o item ao carrinho e depois remover do carrinho', () => {
-            cy.adicionareRemover()
+        it('adicionar um item ao carrinho ', () => {
+            cy.adicionarItem()
+            
 
         });
-        it('filtrar pelo preço mais baixo, adicionar 2 itens no carrinho e depois remover', () => {
-            cy.filtrarPreçoBaixo()
-            cy.get(loc.CARRINHO.ICONE_VAZIO).should('have.text', '')
+        it('adicionar 2 itens ao carrinho ', () => {
+            cy.adicionarDoisItens()
+            cy.get(loc.CARRINHO.ICONE_CARRINHO).should('contain','2')
+
+        });
+        it('remover item do carrinho', () => {
+            cy.adicionarItem()
+            cy.removerItem()
+           
         })
 
     })

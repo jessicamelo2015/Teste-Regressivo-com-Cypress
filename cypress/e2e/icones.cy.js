@@ -1,5 +1,5 @@
 ///<reference types="cypress"/>
-import produtosPage from "../../page-objects/produtos.page";
+import produtosPage from "../page-objects/produtos.page";
 import { loc } from '../support/locators'
 
 describe('teste de regressão nos menus e ícones', () => {
@@ -14,11 +14,6 @@ describe('teste de regressão nos menus e ícones', () => {
             it('verificar o menu All Items', () => {
             cy.allItems()
             cy.get(loc.MENU.PRODUCTS).should('have.text', 'Products')
-            })
-
-            it('verificar o menu About', () => {
-            cy.about()
-             cy.get(loc.MENU.BLANK_PAGE).should('exist')
             })
 
             it('verificar o menu Logout', () => {

@@ -29,6 +29,15 @@ describe('teste de regressão na página de produtos', () => {
             cy.get('select').select(loc.PRODUTOS.PREÇO_ALTO)
             cy.get(loc.PRODUTOS.SAUCE_JACKET).should('contain','Sauce Labs Fleece Jacket')
         })
+        it('adicionar produto',()=>{
+            cy.get(loc.CARRINHO.ADD_BOLSA).click()
+            cy.get(loc.CARRINHO.ICONE_CARRINHO).should('exist')
+        })
+        it('remover produto',()=>{
+            cy.get(loc.CARRINHO.ADD_BOLSA).click()
+            cy.get(loc.CARRINHO.REMOVER_BOLSA).click()
+            cy.get(loc.CARRINHO.ICONE_CARRINHO).should('not.exist')
+        })
     });
     
 });

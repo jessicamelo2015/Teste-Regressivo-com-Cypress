@@ -46,12 +46,17 @@ Cypress.Commands.add('linkedin', () => {
     cy.get(loc.ICONE.LINKEDIN).click()
     cy.url().should('not.eq', urllinkedin)
 })
-
-
-Cypress.Commands.add('adicionareRemover', () => {
+Cypress.Commands.add('adicionarItem', () => {
     cy.get(loc.CARRINHO.ADD_BOLSA).click()
     cy.get(loc.CARRINHO.ICONE_CARRINHO).should('exist')
+})
+Cypress.Commands.add('adicionarDoisItens', () => {
+    cy.get(loc.CARRINHO.ADD_BOLSA).click()
+    cy.get(loc.CARRINHO.ADD_LIGHT_BIKE).click()
+})
+Cypress.Commands.add('removerItem', () => {
     cy.get(loc.CARRINHO.REMOVER_BOLSA).click()
+    cy.get(loc.CARRINHO.ICONE_CARRINHO).should('not.exist')
 })
 Cypress.Commands.add('filtrarPreçoBaixo', () => {
     cy.get('select').select(loc.PRODUTOS.PREÇO_BAIXO)
@@ -80,6 +85,11 @@ Cypress.Commands.add('overviewDaCompra', () => {
     cy.get(loc.COMPRA.BOTAO_CONTINUE).click()
     cy.get(loc.COMPRA.OVERVIEW).should('contain', 'Checkout: Overview')
     cy.get(loc.COMPRA.BOTAO_FINISH).click()
+})
+Cypress.Commands.add('usuarioBloqueado', () => {
+    cy.get(loc.LOGIN.NOME_PESSOA).type("locked_out_user")
+    cy.get(loc.LOGIN.SENHA).type("secret_sauce")
+    cy.get(loc.LOGIN.BOTAO_LOGIN).click()
 })
 Cypress.Commands.add('usuarioIncorreto', () => {
     cy.get(loc.LOGIN.NOME_PESSOA).type(faker.person.firstName())
@@ -113,5 +123,5 @@ Cypress.Commands.add('preencherDadosSemCodPostal', () => {
     cy.get(loc.COMPRA.LAST_NAME).type(faker.person.firstName())
     cy.get(loc.COMPRA.COD_POSTAL)
     cy.get(loc.COMPRA.BOTAO_CONTINUE).click()
-    
+
 })
